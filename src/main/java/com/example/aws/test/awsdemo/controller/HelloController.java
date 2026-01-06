@@ -12,7 +12,7 @@ public class HelloController {
 
     @GetMapping("/hello")
     public String hello() {
-        return "Happy New Year Everyone! <h1>🚀</h1>";
+        return "Yeww! <h1>🚀</h1>";
     }
 
     @GetMapping("/list")
