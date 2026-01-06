@@ -2,6 +2,7 @@ package com.example.aws.test.awsdemo.controller;
 
 import java.util.ArrayList;
 
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
@@ -11,16 +12,18 @@ import org.springframework.web.bind.annotation.RestController;
 public class TestController {
 
     @GetMapping("/list")
-    public ArrayList<String> getCity() {
+    public ResponseEntity<?> getCity() {
 
-        return new ArrayList<String>() {
-            {
-                add("New York");
-                add("Los Angeles");
-                add("Chicago");
-                add("Houston");
-                add("Phoenix");
-            }
-        };
+        return ResponseEntity.ok(getCities());
+    }
+
+    private ArrayList<String> getCities() {
+        ArrayList<String> cities = new ArrayList<>();
+        cities.add("New York");
+        cities.add("Los Angeles");
+        cities.add("Chicago");
+        cities.add("Houston");
+        cities.add("Phoenix");
+        return cities;
     }
 }
